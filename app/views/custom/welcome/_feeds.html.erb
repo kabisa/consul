@@ -73,7 +73,7 @@
                     <% if item.image.present? %>
                       <%= image_tag item.image_url(:medium), alt: item.name %>
                     <% else %>
-                      <%= image_tag "budget_no_image.jpg", alt: t("budgets.no_image_alt") %>
+                      <%= image_tag(image_path_for("budget_no_image.jpg"), alt: t("budgets.no_image_alt")) %>
                     <% end %>
 
                     <figcaption>
