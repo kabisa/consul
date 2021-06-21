@@ -62,7 +62,7 @@ describe "Executions" do
     expect(page).not_to have_content(empty_heading.name)
   end
 
-  scenario "Show message when there are no winning investments with the selected status", :js do
+  scenario "Show message when there are no winning investments with the selected status" do
     skip "Disabled milestones"
     create(:milestone_status, name: I18n.t("seeds.budgets.statuses.executed"))
 
@@ -82,7 +82,7 @@ describe "Executions" do
     scenario "renders milestone image if available" do
       skip "Disabled milestones"
       milestone1 = create(:milestone, :with_image, milestoneable: investment1)
-      
+
       visit budget_path(budget)
 
       click_link "See results"
@@ -160,7 +160,7 @@ describe "Executions" do
       expect(page).to have_content("#{status2.name} (1)")
     end
 
-    scenario "by milestone status", :js do
+    scenario "by milestone status" do
       skip "Disabled milestones"
       create(:milestone, milestoneable: investment1, status: status1)
       create(:milestone, milestoneable: investment2, status: status2)
@@ -190,7 +190,7 @@ describe "Executions" do
       expect(page).not_to have_content(investment2.title)
     end
 
-    scenario "are based on latest milestone status", :js do
+    scenario "are based on latest milestone status" do
       skip "Disabled milestones"
       create(:milestone, milestoneable: investment1,
                          publication_date: 1.month.ago,
@@ -211,7 +211,7 @@ describe "Executions" do
       expect(page).to have_content(investment1.title)
     end
 
-    scenario "milestones with future dates are not shown", :js do
+    scenario "milestones with future dates are not shown" do
       skip "Disabled milestones"
       create(:milestone, milestoneable: investment1,
                          publication_date: Date.yesterday,
@@ -232,7 +232,8 @@ describe "Executions" do
       expect(page).not_to have_content(investment1.title)
     end
 
-    xscenario "by milestone tag, only display tags for winner investments", :js do
+    scenario "by milestone tag, only display tags for winner investments" do
+      skip "Disabled milestones"
       create(:milestone, milestoneable: investment1, status: status1)
       create(:milestone, milestoneable: investment2, status: status2)
       create(:milestone, milestoneable: investment3, status: status2)

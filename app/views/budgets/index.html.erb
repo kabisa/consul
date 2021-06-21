@@ -1,4 +1,4 @@
-<%= render "shared/banner" %>
+<%= render Shared::BannerComponent.new("budgets") %>
 
 <%= render "title", budget: @budget %>
 
@@ -7,7 +7,7 @@
 <% end %>
 
 <% if @budget.present? %>
-  <%= render "budget", budget: @budget %>
+  <%= render Budgets::BudgetComponent.new(@budget) %>
 
   <% if @finished_budgets.present? %>
     <%= render "finished", budgets: @finished_budgets %>
@@ -22,4 +22,4 @@
   </div>
 <% end %>
 
-<%= render "footer" %>
+<%= render Budgets::FooterComponent.new %>
