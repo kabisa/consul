@@ -65,7 +65,6 @@ describe "Custom Pages" do
           subtitle_en: "Subtitle for custom page",
           more_info_flag: true
         )
-        customize_help_page
 
         visit help_path
 
@@ -78,7 +77,6 @@ describe "Custom Pages" do
           subtitle_en: "Subtitle for custom page",
           more_info_flag: false
         )
-        customize_help_page
 
         visit help_path
 

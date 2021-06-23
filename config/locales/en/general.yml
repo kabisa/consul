@@ -668,7 +668,6 @@ en:
     show:
       back: "Go back to my content"
   shared:
-    edit: "Edit"
     save: "Save"
     delete: "Delete"
     "yes": "Yes"

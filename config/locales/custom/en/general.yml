@@ -5,6 +5,7 @@ en:
         proposals: "Featured proposals"
         budgets: "Participatory budgets"
       see_budget: "See this budget"
+      see_all_processes: "See all processes"
     steps:
       title: "Participate in 3 steps"
       subtitle: "Optional secondary text."
@@ -69,6 +70,3 @@ en:
       one: "1 comment"
       other: "%{count} comments"
       zero: "No comments"
-  comments:
-    delete_comment: "Delete comment"
-    confirm_delete_comment: "Are you sure? This action will delete this comment. You can't undo this action."

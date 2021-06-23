@@ -17,7 +17,7 @@ describe "Residence" do
   scenario "Verify resident throught RemoteCensusApi", :remote_census do
     user = create(:user)
     login_as(user)
-    mock_valid_remote_census_response
+    #mock_valid_remote_census_response
 
     visit account_path
     click_link "Verify my account"
@@ -29,7 +29,7 @@ describe "Residence" do
     check "residence_terms_of_service"
     click_button "Verify residence"
 
-    expect(page).to have_content "Residence verified"
+    expect(page).to have_content "Account verified"
   end
 
   scenario "Residence form use min age to participate" do

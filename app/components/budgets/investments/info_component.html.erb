@@ -4,7 +4,7 @@
 
   <span class="far fa-comments"></span>&nbsp;
   <%= link_to t("shared.comments", count: investment.comments_count),
-              namespaced_budget_investment_path(investment, anchor: "comments") %>
+              budget_investment_path(investment.budget, investment, anchor: "comments") %>
 
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
 

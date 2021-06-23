@@ -1,21 +1,26 @@
 require_dependency Rails.root.join("app", "models", "verification", "residence").to_s
 
 class Verification::Residence
-  validate :local_postal_code
-  validate :local_residence
+  clear_validators!
 
-  def local_postal_code
-    errors.add(:postal_code, I18n.t("verification.residence.new.error_not_allowed_postal_code")) unless valid_postal_code?
-  end
+  validates :date_of_birth, presence: true
+  validates :terms_of_service, acceptance: { allow_nil: false }
+  validates :postal_code, presence: true
 
-  def local_residence
-    return if errors.any?
+  validate :allowed_age
+  validate :allowed_postal_code
+  validate :document_number_uniqueness_if_present
 
-    unless residency_valid?
-      errors.add(:local_residence, false)
-      store_failed_attempt
-      Lock.increase_tries(user)
-    end
+  def save
+    return false unless valid?
+
+    user.take_votes_if_erased_document(document_number, document_type)
+
+    user.update(document_number:       document_number,
+                document_type:         document_type,
+                date_of_birth:         date_of_birth.in_time_zone.to_datetime,
+                residence_verified_at: Time.current,
+                verified_at: Time.current)
   end
 
   private

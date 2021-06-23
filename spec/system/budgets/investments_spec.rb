@@ -384,14 +384,12 @@ describe "Budget Investments" do
       second_user_investments_order = nil
 
       in_browser(:one) do
-        visit budget_investments_path(budget, heading: heading)
-        click_link "random"
+        visit budget_investments_path(budget, heading: heading, order: "random")
         first_user_investments_order = investments_order
       end
 
       in_browser(:two) do
-        visit budget_investments_path(budget, heading: heading)
-        click_link "random"
+        visit budget_investments_path(budget, heading: heading, order: "random")
         second_user_investments_order = investments_order
       end
 
