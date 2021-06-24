@@ -358,15 +358,6 @@ aside {
 
   .tabs-title {
     margin-bottom: 0;
-
-    > a {
-
-      &[aria-selected="true"]::after,
-      .is-active::after {
-        border-bottom: 4px solid $brand;
-        bottom: -4px;
-      }
-    }
   }
 }
 
@@ -1008,77 +999,6 @@ footer {
   }
 }
 
-.budget-phases {
-
-  .tabs-title > a {
-
-    &.current-phase {
-      background: $brand-secondary;
-      color: #fff;
-
-      &::after {
-        border-left-color: $brand-secondary;
-      }
-
-      &:hover {
-        background: $dark;
-
-        &::after {
-          border-left-color: $dark;
-        }
-      }
-    }
-
-    &[aria-selected="true"],
-    &.is-active {
-      background: $dark;
-      color: #fff;
-
-      &::after {
-        border-left-color: $dark;
-      }
-    }
-
-    &[aria-selected="true"] {
-
-      &.current-phase {
-        background: $brand-secondary;
-
-        &::after {
-          border-left-color: $brand-secondary;
-        }
-      }
-    }
-  }
-
-  .budget-prev-phase,
-  .budget-next-phase {
-
-    &::before {
-      background: $brand;
-    }
-  }
-
-  img {
-    margin-top: rem-calc(100);
-  }
-
-  .button {
-    margin-top: $line-height * 2;
-    padding-right: $line-height * 1.5;
-    position: relative;
-
-    &::after {
-      content: "\f054";
-      font-family: "Font Awesome 5 Free";
-      font-weight: bold;
-      position: absolute;
-      right: 12px;
-      top: 19px;
-    }
-  }
-}
-
 .budget-subheader {
 
   .current-phase {
@@ -1088,51 +1008,9 @@ footer {
 }
 
 .groups-and-headings .heading {
-  border: 0;
-  margin-right: $line-height / 2;
 
   a {
-    border: 2px solid $border;
-    border-radius: rem-calc(6);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     color: $brand;
-    font-weight: bold;
-    margin-top: $line-height / 4;
-
-    span {
-      font-weight: normal;
-      padding-top: $line-height / 2;
-    }
-
-    &:hover {
-      background: $light;
-      transform: translateY(-6px);
-    }
-  }
-}
-
-.jumbo-budget {
-  background: #fff;
-  border-bottom: 2px solid $border;
-
-  &.budget-heading {
-    background: #fff;
-    border-bottom: 2px solid $border;
-  }
-
-  h1,
-  h2,
-  h3,
-  .back,
-  .icon-angle-left,
-  p,
-  a {
-    color: $text;
-  }
-
-  .button {
-    background: $brand;
-    color: #fff;
   }
 }
 
