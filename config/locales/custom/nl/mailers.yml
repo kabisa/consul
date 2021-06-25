@@ -36,7 +36,7 @@ nl:
       subject: "Iemand heeft gereageerd op je idee %{commentable}"
       title: "Iemand heeft gereageerd op je idee"
       hi: "Beste"
-      new_comment_by_html: "Er is een nieuwe reactie op je idee."
+      new_comment_by_html: "Er is een nieuwe reactie op je idee:"
     reply:
       subject: "Iemand heeft gereageerd op jouw reactie"
       title: "Iemand heeft gereageerd op jouw reactie"
