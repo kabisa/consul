@@ -49,7 +49,7 @@ describe "Emails" do
       email = open_last_email
       expect(email).to have_subject("Someone has commented on your citizen proposal")
       expect(email).to deliver_to(proposal.author)
-      #expect(email).to have_body_text(proposal_path(proposal))
+      expect(email).to have_body_text(proposal_path(proposal))
       expect(email).to have_body_text("To stop receiving these emails change your settings in")
       expect(email).to have_body_text(account_path)
     end
@@ -76,7 +76,7 @@ describe "Emails" do
       email = open_last_email
       expect(email).to have_subject("Someone has commented on your debate")
       expect(email).to deliver_to(debate.author)
-      #expect(email).to have_body_text(debate_path(debate))
+      expect(email).to have_body_text(debate_path(debate))
       expect(email).to have_body_text("To stop receiving these emails change your settings in")
       expect(email).to have_body_text(account_path)
     end
@@ -103,7 +103,7 @@ describe "Emails" do
       email = open_last_email
       expect(email).to have_subject("Someone has commented on your investment")
       expect(email).to deliver_to(investment.author)
-      #expect(email).to have_body_text(budget_investment_path(investment, budget_id: investment.budget_id))
+      expect(email).to have_body_text(budget_investment_path(investment, budget_id: investment.budget_id))
       expect(email).to have_body_text("To stop receiving these emails change your settings in")
       expect(email).to have_body_text(account_path)
     end
