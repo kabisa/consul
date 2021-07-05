@@ -3091,6 +3091,12 @@ footer {
     }
   }
 
+  .budget-phase {
+    @include breakpoint(medium) {
+      width: auto;
+    }
+  }
+
   .budget-prev-phase,
   .budget-next-phase,
   .budget-prev-phase-disabled,
