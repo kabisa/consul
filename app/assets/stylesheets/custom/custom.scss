@@ -517,6 +517,10 @@ header {
 .subnavigation {
   background: $light;
   padding: $line-height / 2 0;
+
+  ul li {
+    margin-right: rem-calc(4);
+  }
 }
 
 .subnavigation a {
@@ -990,6 +994,12 @@ footer {
 
   &.budget {
     background: $brand;
+    color: #fff;
+
+    .back,
+    .icon-angle-left {
+      color: #fff;
+    }
 
     &:not(.button) .button {
       background: rgba(0 , 0, 0, 0.5);
@@ -1101,15 +1111,6 @@ footer {
   .amount-spent,
   .price {
     font-size: $base-font-size;
-  }
-}
-
-.supported .button.button-remove-support {
-  box-shadow: none;
-  color: $brand-secondary;
-
-  &::before {
-    left: 20px;
   }
 }
 
@@ -1570,8 +1571,15 @@ footer {
   margin-top: $line-height * 5;
 }
 
-.draft-panels .draft-allegation .draft-panel {
-  color: $text;
+.draft-panels .draft-allegation {
+
+  .draft-panel {
+    color: $text;
+  }
+
+  .calc-comments .comment-box {
+    overflow: auto;
+  }
 }
 
 .legislation-list .legislation p {

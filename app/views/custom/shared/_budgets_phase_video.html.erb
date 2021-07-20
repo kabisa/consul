@@ -13,6 +13,11 @@
             allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
   <script src="https://player.vimeo.com/api/player.js"></script>
+<% elsif budget.name == "Kinderdromen Durven Doen" && phase == phases.second %>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6PqVaONDC_s"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
 <% elsif phase.image.present? %>
   <%= image_tag phase.image.attachment.url(:large),
                 title: phase.image.title.unicode_normalize,
