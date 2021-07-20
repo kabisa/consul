@@ -48,10 +48,7 @@ class CommentsController < ApplicationController
 
   def hide
     @comment.hide
-  end
-
-  def hide
-    @comment.hide
+    set_comment_flags(@comment.subtree)
   end
 
   private

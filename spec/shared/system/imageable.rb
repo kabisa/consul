@@ -1,10 +1,8 @@
 shared_examples "imageable" do |imageable_factory_name, imageable_path, imageable_path_arguments|
-  let!(:administrator)          { create(:user) }
-  let!(:user)                   { create(:user) }
-  let!(:imageable_arguments)    { {} }
-  let!(:imageables_arguments)   { {} }
-  let!(:imageable)              { create(imageable_factory_name, author: user) }
-  let!(:imageable_dom_name)     { imageable_factory_name.parameterize }
+  let!(:administrator)       { create(:user) }
+  let!(:user)                { create(:user) }
+  let!(:imageable_arguments) { {} }
+  let!(:imageable)           { create(imageable_factory_name, author: user) }
 
   before do
     create(:administrator, user: administrator)
@@ -15,7 +13,7 @@ shared_examples "imageable" do |imageable_factory_name, imageable_path, imageabl
   end
 
   context "Show" do
-    scenario "Show descriptive image when exists", :js do
+    scenario "Show descriptive image when exists" do
       image = create(:image, imageable: imageable)
 
       visit send(imageable_path, imageable_arguments)
@@ -23,13 +21,13 @@ shared_examples "imageable" do |imageable_factory_name, imageable_path, imageabl
       expect(page).to have_css("img[alt='#{image.title}'][title='#{image.title}']")
     end
 
-    scenario "Show image title when image exists" do
+    scenario "Show image title as image alt property when image exists" do
       image = create(:image, imageable: imageable)
 
       visit send(imageable_path, imageable_arguments)
 
       # Remove image title in custom budget investment
-      unless image.imageable_type == "Budget::Investment"
+      unless imageable.is_a?(Budget::Investment) || imageable.is_a?(Proposal)
         expect(page).to have_content image.title
       end
     end

@@ -2,6 +2,26 @@ require "rails_helper"
 
 describe "Welcome page" do
   context "Feeds" do
+    scenario "Show message if there are no items" do
+      visit root_path
+
+      within "#feed_proposals" do
+        expect(page).to have_content "There are no proposals right now"
+      end
+
+      within "#feed_debates" do
+        expect(page).to have_content "There are no debates right now"
+      end
+
+      within "#feed_budgets" do
+        expect(page).to have_content "There are no budgets right now"
+      end
+
+      within "#feed_processes" do
+        expect(page).to have_content "There are no open processes right now"
+      end
+    end
+
     scenario "Show published budgets info" do
       budget = create(:budget, :accepting)
       finished = create(:budget, :finished)
@@ -25,7 +45,7 @@ describe "Welcome page" do
         expect(page).to have_link href: budget_path(budget)
         expect(page).to have_content finished.name
         expect(page).to have_content finished.formatted_total_headings_price
-        expect(page).to have_content "Completed"
+        expect(page).to have_content "COMPLETED"
         expect(page).to have_content "€", count: 1
         expect(page).to have_content "#{finished.start_date.to_date}"
         expect(page).to have_content "#{finished.end_date.to_date}"

@@ -14,16 +14,10 @@ describe "Residence" do
     verify_residence
   end
 
-  scenario "Verify resident throught RemoteCensusApi" do
-    Setting["feature.remote_census"] = true
-
-    access_user_data = "get_habita_datos_response.get_habita_datos_return.datos_habitante.item"
-    access_residence_data = "get_habita_datos_response.get_habita_datos_return.datos_vivienda.item"
-    Setting["remote_census.response.date_of_birth"] = "#{access_user_data}.fecha_nacimiento_string"
-    Setting["remote_census.response.postal_code"] = "#{access_residence_data}.codigo_postal"
-    Setting["remote_census.response.valid"] = access_user_data
+  scenario "Verify resident throught RemoteCensusApi", :remote_census do
     user = create(:user)
     login_as(user)
+    #mock_valid_remote_census_response
 
     visit account_path
     click_link "Verify my account"
@@ -35,8 +29,7 @@ describe "Residence" do
     check "residence_terms_of_service"
     click_button "Verify residence"
 
-    expect(page).to have_content "Your account is already verified"
-    Setting["feature.remote_census"] = nil
+    expect(page).to have_content "Account verified"
   end
 
   scenario "Residence form use min age to participate" do

@@ -32,7 +32,7 @@
   <% if @budget.single_heading? %>
     <div class="small-12 column">
   <% else %>
-    <div class="small-12 medium-3 large-2 column">
+    <div class="small-12 medium-3 column">
       <h3 class="margin-bottom">
         <%= t("budgets.results.heading_selection_title") %>
       </h3>
@@ -47,7 +47,7 @@
       </ul>
     </div>
 
-    <div class="small-12 medium-9 large-10 column">
+    <div class="small-12 medium-9 column">
   <% end %>
 
     <% if @investments.not_winners.any? %>
@@ -68,6 +68,18 @@
                                   heading_price: @heading.price,
                                   investments: @investments.incompatible %>
     <% end %>
+
+    <p>
+      <%= link_to budget_investments_path(@budget, heading_id: @heading) do %>
+        <small><%= t("budgets.results.investment_proyects") %></small>
+      <% end %><br>
+      <%= link_to budget_investments_path(@budget, heading_id: @heading, filter: "unfeasible") do %>
+        <small><%= t("budgets.results.unfeasible_investment_proyects") %></small>
+      <% end %><br>
+      <%= link_to budget_investments_path(@budget, heading_id: @heading, filter: "unselected") do %>
+        <small><%= t("budgets.results.not_selected_investment_proyects") %></small>
+      <% end %>
+    </p>
   </div>
 
   <%= render "budgets/all_investments_link", budget: @budget %>
