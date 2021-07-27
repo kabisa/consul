@@ -11,4 +11,4 @@ en:
     direct_message_for_receiver:
       title: You've received a new private message.
     comment:
-      new_comment_by_html: "There is a new reaction to your idea:"
+      new_comment_by_html: "There is a new reaction to your idea."
