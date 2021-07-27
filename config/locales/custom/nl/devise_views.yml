@@ -6,6 +6,10 @@ nl:
         confirm_link: "Klik op %{link} om de registratie van je account af te ronden."
         link: "deze link"
         text: "Met deze email registreer je je account voor de Stem van Groningen. Als je dit niet hebt aangevraagd, klik dan niet op de link en negeer deze mail."
+      reset_password_instructions:
+        ignore_text: "Geen nieuw wachtwoord opgevraagd? Dan kun je deze mail negeren."
+        info_text: "Je wachtwoord verandert niet totdat je deze via de link aanpast."
+        text: "We hebben een verzoek gekregen om je wachtwoord te veranderen. Je kunt dit doen via de volgende link:"
     menu:
       login_items:
         login: "Inloggen"
